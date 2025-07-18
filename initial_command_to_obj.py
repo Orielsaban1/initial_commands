@@ -119,3 +119,10 @@ print(oriel.turn_on_led("green"))
 
 print(oriel.move(speed=20,y=20,x=10))
 
+import inspect
+# how to initial bouth of the args look that its after the bulding of the function this is a good flow
+def get_args_dict(func, *args, **kwargs):
+    sig = inspect.signature(func)
+    bound = sig.bind(*args, **kwargs)
+    bound.apply_defaults()
+    return dict(bound.arguments)
